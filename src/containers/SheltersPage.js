@@ -9,7 +9,6 @@ import {fetchShelters} from '../actions/shelters'
 class SheltersPage extends Component {
 	componentDidMount = () => {
 	    this.props.fetchShelters()
-	    console.log(this.props.match.url)
 	  }
 	render(){
 		return(

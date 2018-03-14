@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import {loginUser} from '../actions/users.js'
-
+import {loginUser, signUpUser} from '../actions/user.js'
+import {Form, Button} from 'react-bootstrap'
+import LoginForm from '../components/LoginForm'
+import SignUpForm from '../components/SignUpForm'
 
 class LoginPage extends Component {
 	constructor(props) {
@@ -9,14 +11,28 @@ class LoginPage extends Component {
     this.state = {
       email: '',
       password: '',
+      password_confirm: '',
     };
   }
 
-  handleOnSubmit = event => {
+  handleLoginSubmit = (event)=>{
     event.preventDefault();
     const { loginUser, history } = this.props
-    loginUser(this.state);
-    history.push('/');
+    loginUser({
+    	email: this.state.email,
+    	password: this.state.password
+    });
+    //history.push('/');
+  }
+
+  handleSignUpSubmit = (event) => {
+  	event.preventDefault();
+  	const {signUpUser, history } = this.props
+  	signUpUser({user: {
+  		email: this.state.email,
+  		password: this.state.password,
+  		password_confirmation: this.state.password_confirm,
+  	}})
   }
 
   handleOnChange = event => {
@@ -27,39 +43,23 @@ class LoginPage extends Component {
 	render(){
 		return(
 			<div>
-				<h1>Login</h1>
-				<Form onSubmit={this.handleOnSubmit} >
-					<div className="form-group form-row">
-						<label className="col-sm-2 col-form-label">Email: </label>
-						<div className="col-sm-10">
-		          <input
-		          	className="form-control"
-		            type="email"
-		            placeholder="Email"
-		            name="email"
-		            onChange={this.handleOnChange} />
-	        	</div>
-	        </div>
-	        <div className="form-group form-row">
-		        <label className="col-sm-2 col-form-label">Password: </label>
-		      	<div className="col-sm-10">
-	          	<input
-		          	className="form-control"
-		            type="password"
-		            placeholder="Password"
-		            name="password"
-		            onChange={this.handleOnChange} />
-          	</div>
-          </div>
-          <Button
-            type="submit"
-            className="btn btn-primary">
-          	Login
-          </Button>
-        </Form>
+				<LoginForm 
+				  handleOnChange={this.handleOnChange} 
+				  handleOnSubmit={this.handleLoginSubmit}/>
+				<SignUpForm
+					handleOnChange={this.handleOnChange} 
+				  handleOnSubmit={this.handleSignUpSubmit}/>
 			</div>
 		)
 	}
 }
 
-export default connect(null, {loginUser})(LoginPage)
+const mapStateToProps = (state) => {
+	const xUser = state.user ? state.user : {}
+	console.log(state)
+	return {
+		user: xUser
+	}
+}
+
+export default connect(mapStateToProps, {loginUser, signUpUser})(LoginPage)

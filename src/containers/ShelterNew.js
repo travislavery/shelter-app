@@ -15,8 +15,8 @@ class ShelterNew extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const { createShelter, history } = this.props
-    createShelter(this.state);
+    const { createShelter, history, user } = this.props
+    createShelter(this.state, user.email, user.authentication_token);
     history.push('/shelters');
   }
 
@@ -76,6 +76,12 @@ class ShelterNew extends Component {
 	}
 }
 
+const mapStateToProps = (state) => {
+	const xUser = state.user ? state.user : {}
+	return {
+		user: xUser
+	}
+}
 
-export default connect(null, {createShelter})(ShelterNew)
+export default connect(mapStateToProps, {createShelter})(ShelterNew)
 //:name, :address, :phone_number

@@ -7,14 +7,16 @@ export function fetchShelters(){
 	}
 }
 
-export function createShelter(shelterFormData){
+export function createShelter(shelterFormData, xEmail, xToken){
 	return (dispatch) => {
 		dispatch({type: 'CREATING_SHELTER'})
-		return fetch('http://localhost:4000/v1/', {
+		return fetch('http://localhost:4000/v1/shelters', {
 			method: 'POST',
 			body: JSON.stringify(shelterFormData),
 			headers: {
-				'content-type': 'application/json'
+				'content-type': 'application/json',
+				'X-User-Email': xEmail,
+				'X-User-Token': xToken,
 			},
 			mode: 'cors',
 		})
