@@ -2,26 +2,28 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
 import SheltersList from '../components/SheltersList'
-import ShelterShow from './ShelterShow'
 import ShelterNew from './ShelterNew'
+import ShelterShow from './ShelterShow'
 import {fetchShelters} from '../actions/shelters'
 
 class SheltersPage extends Component {
 	componentDidMount = () => {
-	    //this.props.fetchShelters()
-	    console.log(this.props)
+	    this.props.fetchShelters()
+	    console.log(this.props.match.url)
 	  }
 	render(){
 		return(
 			<div>
-				<SheltersList shelters={[{id: 1, name: 'Soupy'}, {id: 2, name: 'Sleepy'}]} />
-				<Switch>
-					<Route path={`${this.props.match.url}/new`} component={ShelterNew}/>
-					<Route path={`${this.props.match.url}/:id`} component={ShelterShow}/>
-				</Switch>
+				<SheltersList shelters={this.props.shelters} />
+				
 			</div>
 		)
 	}
 }
 
-export default connect(null, {fetchShelters})(SheltersPage)
+const mapStateToProps = (state) =>{
+	return {
+		shelters: state.shelters
+	}
+}
+export default connect(mapStateToProps, {fetchShelters})(SheltersPage)

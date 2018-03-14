@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import SheltersPage from './containers/SheltersPage'
+import ShelterNew from './containers/ShelterNew'
+import ShelterShow from './containers/ShelterShow'
 import {Grid} from 'react-bootstrap'
 import NavBar from './components/NavBar'
 import Home from './containers/Home'
@@ -16,12 +18,15 @@ class App extends Component {
           <NavBar />
           <Grid>
             <Route exact path='/' component={Home}/>
-          </Grid>
-          <Grid>
             <Route exact path='/shelters' component={SheltersPage} />
+            <Route exact path='/login' component={LoginPage} />
+            <Switch>
+              <Route path={'/shelters/new'} component={ShelterNew} />
+              <Route path={'/shelters/:shelterId'} component={ShelterShow} />
+            </Switch>
           </Grid>
           <Grid>
-            <h1>Nope</h1>
+            <Route exact path='/' component={Home}/>
           </Grid>
         </div>
       </Router>

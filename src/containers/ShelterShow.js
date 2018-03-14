@@ -1,11 +1,27 @@
-import React from 'react'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
-const ShelterShow = (props) => {
-	return (
-		<div>
-			<h1>Shelter Show page!</h1>
-		</div>
-	)
+class ShelterShow extends Component{
+	componentDidMount = () => {
+		console.log(this.props)
+	}
+	render(){
+		return (
+			<div>
+				<h1>Shelter Show page!</h1>
+			</div>
+		)
+	}
 }
 
-export default ShelterShow
+const mapStateToProps = (state, ownProps) => {
+	const shelter = state.shelters.find(shelter => shelter.id == ownProps.match.params.shelterId)
+	if (shelter){
+	  console.log(shelter)
+	  return { shelter }
+	} else {
+		return {shelter: {}}
+	}
+};
+
+export default connect(mapStateToProps, {})(ShelterShow)
