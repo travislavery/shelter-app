@@ -20,7 +20,6 @@ const Items = (props) => {
 		
 	return (
 		<div className="col-12">
-			<h1>Items Inventory</h1>
 			{itemList()}
 		</div>
 	)

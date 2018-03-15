@@ -1,18 +1,18 @@
-export function CreateItem(itemData, xEmail, xToken){
+export function createItem(itemData, shelterId){
 	return (dispatch) => {
 		dispatch({type: 'START_CREATE_ITEM'})
-		return fetch('http://localhost:4000/v1/items', {
+		return fetch(`http://localhost:4000/v1/shelters/${shelterId}/items`, {
 			method: 'POST',
 			body: JSON.stringify(itemData),
 			headers: {
 				'content-type': 'application/json',
-				'X-User-Email': xEmail,
-				'X-User-Token': xToken,
+				//'X-User-Email': xEmail,
+				//'X-User-Token': xToken,
 			},
 			mode: 'cors',
 		})
 		.then(response => response.json())
-		.then(item => dispatch({type: "CREATE_ITEM", payload: item}))
+		.then(shelter => dispatch({type: "SHELTER_ITEM_CREATED", payload: shelter}))
 		.catch(error => console.error(error))
 	}
 }

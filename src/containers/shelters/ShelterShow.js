@@ -4,6 +4,7 @@ import ShelterCard from '../../components/shelters/ShelterCard'
 import {Button} from 'react-bootstrap'
 import {fetchItems} from '../../actions/items'
 import Items from '../../components/items/Items'
+import NewItemModal from '../../components/items/NewItemModal'
 
 
 class ShelterShow extends Component{
@@ -19,7 +20,9 @@ class ShelterShow extends Component{
 					<ShelterCard shelter={this.props.shelter}/>
 				</div>
 				<div>
-					<Items shelter={this.props.shelter} itemCountUp={this.itemCountUp} itemCountDown={this.itemCountDown}/>
+					<h1>Items Inventory</h1>
+					<NewItemModal shelter={this.props.shelter} />
+					<Items shelter={this.props.shelter}/>
 				</div>
 			</div>
 		)
