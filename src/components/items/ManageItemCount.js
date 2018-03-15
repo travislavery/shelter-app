@@ -5,9 +5,9 @@ import { NavLink } from 'react-router-dom';
 const ManageItemCount = (props) => {
 	return (
 		<div>
-			<Button onClick={props.addItem}>+</Button>
+			<Button onClick={props.itemCountDown}>-</Button>
 			{props.count}
-			<Button onClick={props.subtractItem}>-</Button>
+			<Button onClick={props.itemCountUp}>+</Button>
 		</div>
 	)
 }
