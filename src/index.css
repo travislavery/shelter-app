@@ -3,3 +3,9 @@ body {
   padding-top: 90px;
   font-family: sans-serif;
 }
+
+#social-media-links {
+	position: absolute;
+	right: 50px;
+	top:100px;
+}

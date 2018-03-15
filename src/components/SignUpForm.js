@@ -5,6 +5,7 @@ const SignUpForm = (props) => {
 	return (
 		<div>
 			<h1>Sign Up</h1>
+			<p>Have an account? <Button name="form" value="login" onClick={(event)=>props.handleOnChange(event)}>Login!</Button></p>
 			<Form onSubmit={(event)=>props.handleOnSubmit(event)} >
 				<div className="form-group form-row">
 					<label className="col-sm-2 col-form-label">Email: </label>

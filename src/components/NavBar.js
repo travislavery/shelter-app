@@ -16,13 +16,13 @@ class NavBar extends Component{
 	}
 
 	handleLogout = () => {
-	  logout(this.props.user);
+	  const {logout} = this.props
+	  //logout(this.props.user);
 	}
 
 	componentWillReceiveProps = (nextProps) => {
 	  console.log(nextProps)
 	  const userStatus = nextProps.user !== {} ? true : false
-	  debugger
 	  this.setState({
 	  	logged_in: userStatus,
 	  })

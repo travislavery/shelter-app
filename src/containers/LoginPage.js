@@ -9,6 +9,7 @@ class LoginPage extends Component {
 	constructor(props) {
     super(props);
     this.state = {
+    	form: 'login',
       email: '',
       password: '',
       password_confirm: '',
@@ -33,6 +34,7 @@ class LoginPage extends Component {
   		password: this.state.password,
   		password_confirmation: this.state.password_confirm,
   	}})
+  	history.push('/')
   }
 
   handleOnChange = event => {
@@ -41,14 +43,20 @@ class LoginPage extends Component {
     });
   }
 	render(){
-		return(
-			<div>
-				<LoginForm 
+		const formChoice = this.state.form === 'login' ? (
+			<LoginForm 
 				  handleOnChange={this.handleOnChange} 
 				  handleOnSubmit={this.handleLoginSubmit}/>
-				<SignUpForm
+			) : (
+			<SignUpForm
 					handleOnChange={this.handleOnChange} 
 				  handleOnSubmit={this.handleSignUpSubmit}/>
+			)
+		return(
+			<div>
+				<div></div>
+				{formChoice}
+				
 			</div>
 		)
 	}
