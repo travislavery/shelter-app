@@ -6,7 +6,7 @@ const LogoutNav = (props) => {
 	return (
 		<li className="nav-item">
 			<form onSubmit={props.handleLog}>
-				<Button type='submit'><h3>Logout</h3></Button>
+				<Button bsStyle="link" type='submit'><h3>Logout</h3></Button>
 			</form>
 		</li>
 	)

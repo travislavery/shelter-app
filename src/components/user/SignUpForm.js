@@ -34,7 +34,7 @@ const SignUpForm = (props) => {
 	      	<div className="col-sm-10">
           	<input
 	          	className="form-control"
-	            type="password_confirm"
+	            type="password"
 	            placeholder="Password Confirm"
 	            name="password_confirm"
 	            onChange={(event)=>props.handleOnChange(event)} />

@@ -5,9 +5,9 @@ import {Button} from 'react-bootstrap'
 const SocialMediaLinks = ({shelter}) => {
 	return (
 		<div id="social-media-links" className="btn-group-vertical">
-			<Button>Hello</Button>
-			<Button>Hello</Button>
-			<Button>Hello</Button>
+			<Button bsStyle="info">Hello</Button>
+			<Button bsStyle="success">Hello</Button>
+			<Button bsStyle="danger">Hello</Button>
 		</div>
 	)
 }
