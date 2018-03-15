@@ -8,7 +8,7 @@ import Items from '../../components/items/Items'
 
 class ShelterShow extends Component{
 	componentDidMount = () => {
-		this.props.fetchItems(this.props.shelter.id)
+		//this.props.fetchItems(this.props.shelter.id)
 	}
 
 	itemCountUp = () => {
@@ -24,7 +24,7 @@ class ShelterShow extends Component{
 		return (
 			<div>
 				<ShelterCard shelter={this.props.shelter}/>
-				<Items items={this.props.items} itemCountUp={this.itemCountUp} itemCountDown={this.itemCountDown}/>
+				<Items items={this.props.shelter.items} itemCountUp={this.itemCountUp} itemCountDown={this.itemCountDown}/>
 			</div>
 		)
 	}
@@ -35,13 +35,11 @@ const mapStateToProps = (state, ownProps) => {
 	console.log(state)
 	if (shelter){
 	  return { 
-	  	shelter,
-	  	items: state.items,
+	  	shelter
 	  	}
 	} else {
 		return {
 			shelter: {},
-			items: [],
 		}
 	}
 };

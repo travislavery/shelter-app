@@ -17,10 +17,10 @@ export function CreateItem(itemData, xEmail, xToken){
 	}
 }
 
-export function fetchItems(shelterId=''){
+export function fetchItems(){
 	return (dispatch) => {
 		dispatch({type: 'STARTING_FETCH_ITEMS'})
-		return fetch(`http://localhost:4000/v1/shelters/${shelterId}/items`)
+		return fetch(`http://localhost:4000/v1/items`)
 		.then(response => response.json())
 		.then(items => dispatch({type: "FETCH_ITEMS", payload: items}))
 	}
