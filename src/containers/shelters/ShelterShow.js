@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import ShelterCard from '../components/ShelterCard'
+import ShelterCard from '../../components/shelters/ShelterCard'
 import {Button} from 'react-bootstrap'
 
 

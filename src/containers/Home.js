@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {Jumbotron, Grid, Col} from 'react-bootstrap'
-import SheltersList from '../components/SheltersList'
+import SheltersList from '../components/shelters/SheltersList'
 
 
 class Home extends Component {

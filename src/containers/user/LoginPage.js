@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import {loginUser, signUpUser} from '../actions/user.js'
+import {loginUser, signUpUser} from '../../actions/user.js'
 import {Form, Button} from 'react-bootstrap'
-import LoginForm from '../components/LoginForm'
-import SignUpForm from '../components/SignUpForm'
+import LoginForm from '../../components/user/LoginForm'
+import SignUpForm from '../../components/user/SignUpForm'
 
 class LoginPage extends Component {
 	constructor(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from 'react-bootstrap'
-import ManageItemCount from '../components/ManageItemCount'
+import ManageItemCount from './ManageItemCount'
 
 const Item = (props) => {
 	return (

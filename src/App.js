@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
-import SheltersPage from './containers/SheltersPage'
-import ShelterNew from './containers/ShelterNew'
-import ShelterShow from './containers/ShelterShow'
-import LoginPage from './containers/LoginPage'
-import SocialMediaLinks from './components/SocialMediaLinks'
+import SheltersPage from './containers/shelters/SheltersPage'
+import ShelterNew from './containers/shelters/ShelterNew'
+import ShelterShow from './containers/shelters/ShelterShow'
+import LoginPage from './containers/user/LoginPage'
+import SocialMediaLinks from './components/user/SocialMediaLinks'
 import {fetchUser} from './actions/user'
 import {fetchShelters} from './actions/shelters'
 import decode from 'jwt-decode'
 import {Grid} from 'react-bootstrap'
-import NavBar from './components/NavBar'
+import NavBar from './components/navbar/NavBar'
 import Home from './containers/Home'
 //import './App.css';
 

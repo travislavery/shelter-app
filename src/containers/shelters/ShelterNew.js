@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {createShelter} from '../actions/shelters'
+import {createShelter} from '../../actions/shelters'
 import {Form, Button} from 'react-bootstrap'
 
 class ShelterNew extends Component {

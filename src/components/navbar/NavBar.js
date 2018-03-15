@@ -4,7 +4,7 @@ import {Navbar} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
 import LoginNav from './LoginNav'
 import LogoutNav from './LogoutNav'
-import {logout} from '../actions/user'
+import {logout} from '../../actions/user'
 
 class NavBar extends Component{
 	constructor(){

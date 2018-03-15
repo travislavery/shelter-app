@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
-import SheltersList from '../components/SheltersList'
+import SheltersList from '../../components/shelters/SheltersList'
 import ShelterNew from './ShelterNew'
 import ShelterShow from './ShelterShow'
 
