@@ -20,11 +20,15 @@ class ShelterShow extends Component{
 	}
 
 	render(){
-		console.log(this.props)
+		console.log(React.Children)
 		return (
 			<div>
-				<ShelterCard shelter={this.props.shelter}/>
-				<Items items={this.props.shelter.items} itemCountUp={this.itemCountUp} itemCountDown={this.itemCountDown}/>
+				<div>
+					<ShelterCard shelter={this.props.shelter}/>
+				</div>
+				<div>
+					<Items shelter={this.props.shelter} itemCountUp={this.itemCountUp} itemCountDown={this.itemCountDown}/>
+				</div>
 			</div>
 		)
 	}

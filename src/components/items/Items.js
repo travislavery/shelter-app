@@ -4,11 +4,28 @@ import Item from './Item'
 
 const Items = (props) => {
 	console.log(props)
-	const items = props.items.map(item => <Item key={item.id} item={item} itemCountUp={props.itemCountUp} itemCountDown={props.itemCountDown}/>)
+	const itemList = () => {
+		if (props.shelter.items){
+			return props.shelter.items.map(item =>
+			 <Item 
+			 	className="col-auto"
+			 	key={item.id} 
+			 	count={props.shelter.shelter_items.find(shelitem=> shelitem.item_id === item.id)} 
+			 	item={item} 
+			 	itemCountUp={props.itemCountUp} 
+			 	itemCountDown={props.itemCountDown}
+			 />
+			)
+		} else {
+			return <h1>No items!</h1>
+		}
+	}
+		
 	return (
-		<ul>
-			{items}
-		</ul>
+		<div className="col-12">
+			<h1>Items Inventory</h1>
+			{itemList()}
+		</div>
 	)
 }
 

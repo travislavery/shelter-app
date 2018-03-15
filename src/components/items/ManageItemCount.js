@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom';
 
 const ManageItemCount = (props) => {
 	return (
-		<div>
+		<h2>
 			<Button onClick={props.itemCountDown}>-</Button>
-			{props.count}
+			{props.count.inventory}
 			<Button onClick={props.itemCountUp}>+</Button>
-		</div>
+		</h2>
 	)
 }
 

@@ -4,10 +4,10 @@ import ManageItemCount from './ManageItemCount'
 
 const Item = (props) => {
 	return (
-		<li>
-			<h3>{props.item.name}</h3>
-			<ManageItemCount count={props.item.count || 0} itemCountUp={props.itemCountUp} itemCountDown={props.itemCountDown} />
-		</li>
+		<div className='row'>
+			<h1>{props.item.name}</h1>
+			<ManageItemCount count={props.count === undefined ? 0 : props.count} itemCountUp={props.itemCountUp} itemCountDown={props.itemCountDown} />
+		</div>
 	)
 }
 
