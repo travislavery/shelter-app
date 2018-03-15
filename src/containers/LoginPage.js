@@ -22,7 +22,7 @@ class LoginPage extends Component {
     	email: this.state.email,
     	password: this.state.password
     });
-    //history.push('/');
+    history.push('/');
   }
 
   handleSignUpSubmit = (event) => {
@@ -55,10 +55,9 @@ class LoginPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-	const xUser = state.user ? state.user : {}
 	console.log(state)
 	return {
-		user: xUser
+		user: state.user
 	}
 }
 

@@ -31,3 +31,25 @@ export function signUpUser(userFormData){
 		.catch(error => console.error(error))
 	}
 }
+
+export function fetchUser(){
+	return (dispatch)=>{
+		dispatch({type: '@@INIT'})
+	}
+}
+
+export function logout(user){
+	return (dispatch)=>{
+		dispatch({type: 'START_LOG_OUT'})
+		// return fetch('http://localhost:4000/v1/sessions', {
+		// 	method: 'DELETE',
+		// 	headers: {
+		// 		'content-type': 'application/json',
+		// 		'X-User-Email': user.email,
+		// 		'X-User-Token': user.authentication_token,
+		// 	},
+		// 	mode: 'cors',
+		// })
+		// .then(response => dispatch({type: "LOG_OUT"}))
+	}
+}

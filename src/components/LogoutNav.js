@@ -2,12 +2,12 @@ import React from 'react';
 import {Button} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
 
-const LoginNav = () => {
+const LogoutNav = (props) => {
 	return (
 		<li className="nav-item">
-			<NavLink to="/login"><h3>Login</h3></NavLink>
+			<NavLink to='#' onClick={props.handleLog()}><h3>Logout</h3></NavLink>
 		</li>
-		)
+	)
 }
 
-export default LoginNav
+export default LogoutNav

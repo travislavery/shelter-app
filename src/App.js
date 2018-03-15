@@ -5,18 +5,22 @@ import SheltersPage from './containers/SheltersPage'
 import ShelterNew from './containers/ShelterNew'
 import ShelterShow from './containers/ShelterShow'
 import LoginPage from './containers/LoginPage'
+import {fetchUser} from './actions/user'
 import {Grid} from 'react-bootstrap'
 import NavBar from './components/NavBar'
 import Home from './containers/Home'
 //import './App.css';
 
 class App extends Component {
+  componentDidMount = () => {
+    this.props.fetchUser()
+  }
 
   render() {
     return (
       <Router>
         <div>
-          <NavBar />
+          <NavBar user={this.props.user} handleLogout={this.handleLogout}/>
           <Grid>
             <Route exact path='/' component={Home}/>
             <Route exact path='/shelters' component={SheltersPage} />
@@ -36,10 +40,12 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return state
+  return {
+    user: state.user
+  }
 }
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, {fetchUser})(App);
 
 
 // <header className="App-header">

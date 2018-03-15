@@ -16,7 +16,7 @@ class ShelterNew extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     const { createShelter, history, user } = this.props
-    createShelter(this.state, user.email, user.authentication_token);
+    createShelter({shelter: this.state}, user.email, user.authentication_token);
     history.push('/shelters');
   }
 
@@ -77,9 +77,8 @@ class ShelterNew extends Component {
 }
 
 const mapStateToProps = (state) => {
-	const xUser = state.user ? state.user : {}
 	return {
-		user: xUser
+		user: state.user
 	}
 }
 
