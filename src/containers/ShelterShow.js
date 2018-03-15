@@ -1,10 +1,16 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import ShelterCard from '../components/ShelterCard'
+import {Button} from 'react-bootstrap'
+
 
 class ShelterShow extends Component{
 	componentDidMount = () => {
 		console.log(this.props)
+	}
+
+	addItem = () => {
+		console.log("added")
 	}
 	render(){
 		return (

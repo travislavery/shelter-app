@@ -1,8 +1,8 @@
 import React from 'react'
 import ShelterCard from './ShelterCard'
 
-const SheltersList = ({shelters}) => {
-	const renderShelters = shelters.map(shelter => <ShelterCard key={shelter.id} shelter={shelter} />)
+const SheltersList = (props) => {
+	const renderShelters = props.shelters.map(shelter => <ShelterCard key={shelter.id} columnwidth={props.columnwidth} shelter={shelter} />)
 	return (
 		<div className='row'>
 			{renderShelters}

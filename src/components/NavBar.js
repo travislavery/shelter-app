@@ -30,7 +30,6 @@ class NavBar extends Component{
 
 	// shouldComponentUpdate(nextProps, nextState){
 	// 	const userStatus = nextProps.user !== {} ? true : false
-	// 	debugger
 	// 	return (userStatus === this.state.logged_in)
 	// }
 
