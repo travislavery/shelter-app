@@ -15,19 +15,13 @@ import Home from './containers/Home'
 //import './App.css';
 
 // const checkAuth = () => {
-//   const token = localStorage.getItem('token')
-//   const refreshToken = localStorage.getItem('refreshToken')
-//   if (!token || !refreshToken) {
+//   const token = localStorage.getItem('authentication_token')
+//   const email = localStorage.getItem('email')
+//   if (!token || !email) {
 //     return false
 //   }
 
-//   try {
-//     const {exp} = decode(refreshToken)
-
-//     if (exp < new Date().getTime()/1000) {
-//       return false
-//     }
-//   } catch (e) {
+//   if (token===undefined || email===undefined){
 //     return false
 //   }
 
@@ -49,6 +43,7 @@ class App extends Component {
   componentDidMount = () => {
     this.props.fetchUser()
     this.props.fetchShelters()
+    //checkAuth() ? 
   }
 
   render() {
