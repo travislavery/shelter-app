@@ -12,6 +12,7 @@ export default (state={}, action) => {
 		  return {...action.payload}
 		case "START_LOG_OUT":
 		  console.log("logging out")
+		  break
 		case "LOG_OUT":
 		  return state
 		default: 

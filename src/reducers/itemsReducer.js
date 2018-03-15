@@ -5,6 +5,8 @@ export default (state=[], action) => {
 		  return state
 		case 'FETCH_ITEMS':
 		  return [...action.payload]
+		case 'UPDATED_ITEM_COUNT':
+		  return state
 		case 'ADD_ITEM':
 		  return [...state, action.payload]
 		default: 
