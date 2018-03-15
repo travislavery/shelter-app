@@ -25,3 +25,22 @@ export function createShelter(shelterFormData, xEmail, xToken){
 		.catch(error => console.error(error))
 	}
 }
+
+export function updateShelterItem(inventory//, xEmail, xToken
+	){
+	return (dispatch) => {
+		return fetch('http://localhost:4000/v1/shelter_items', {
+			method: 'POST',
+			body: JSON.stringify(inventory),
+			headers: {
+				'content-type': 'application/json',
+				//'X-User-Email': xEmail,
+				//'X-User-Token': xToken,
+			},
+			mode: 'cors',
+		})
+		.then(response => response.json())
+		.then(shelter => dispatch({type: "SHELTER_ITEM_COUNT_UPDATED", payload: shelter}))
+		.catch(error => console.error(error))
+	}
+}

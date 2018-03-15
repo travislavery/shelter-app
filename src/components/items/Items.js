@@ -1,5 +1,4 @@
 import React from 'react';
-import {Button} from 'react-bootstrap'
 import Item from './Item'
 
 const Items = (props) => {
@@ -10,10 +9,8 @@ const Items = (props) => {
 			 <Item 
 			 	className="col-auto"
 			 	key={item.id} 
-			 	count={props.shelter.shelter_items.find(shelitem=> shelitem.item_id === item.id)} 
-			 	item={item} 
-			 	itemCountUp={props.itemCountUp} 
-			 	itemCountDown={props.itemCountDown}
+			 	shelter={props.shelter} 
+			 	item={item}
 			 />
 			)
 		} else {

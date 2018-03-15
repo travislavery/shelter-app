@@ -11,14 +11,6 @@ class ShelterShow extends Component{
 		//this.props.fetchItems(this.props.shelter.id)
 	}
 
-	itemCountUp = () => {
-		console.log("added")
-	}
-
-	itemCountDown = () => {
-		console.log("subtracted")
-	}
-
 	render(){
 		console.log(React.Children)
 		return (
@@ -39,7 +31,8 @@ const mapStateToProps = (state, ownProps) => {
 	console.log(state)
 	if (shelter){
 	  return { 
-	  	shelter
+	  	shelter,
+	  	user: state.user
 	  	}
 	} else {
 		return {
