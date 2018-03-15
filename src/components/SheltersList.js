@@ -1,8 +1,8 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import ShelterCard from './ShelterCard'
 
 const SheltersList = ({shelters}) => {
-	const renderShelters = shelters.map(shelter => <Link key={shelter.id} to={`/shelters/${shelter.id}`}>{shelter.name}</Link>)
+	const renderShelters = shelters.map(shelter => <ShelterCard shelter={shelter} />)
 	return (
 		<div>
 			{renderShelters}

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import ShelterCard from '../components/ShelterCard'
 
 class ShelterShow extends Component{
 	componentDidMount = () => {
@@ -8,7 +9,7 @@ class ShelterShow extends Component{
 	render(){
 		return (
 			<div>
-				<h1>Shelter Show page!</h1>
+				<ShelterCard shelter={this.props.shelter}/>
 			</div>
 		)
 	}
