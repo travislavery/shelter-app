@@ -7,7 +7,7 @@ export default (state={}, action) => {
 		case "START_LOG_OUT":
 		  console.log("logging out")
 		case "LOG_OUT":
-		  return {}
+		  return state
 		default: 
 		  return state
 	}

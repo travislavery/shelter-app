@@ -17,7 +17,7 @@ class NavBar extends Component{
 
 	handleLogout = () => {
 	  const {logout} = this.props
-	  //logout(this.props.user);
+	  logout(this.props.user);
 	}
 
 	componentWillReceiveProps = (nextProps) => {
