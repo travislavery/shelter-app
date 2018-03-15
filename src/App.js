@@ -22,8 +22,8 @@ class App extends Component {
       <Router>
         <div>
           <NavBar user={this.props.user}/>
+          <Route exact path='/' component={Home}/>
           <Grid>
-            <Route exact path='/' component={Home}/>
             <Route exact path='/shelters' component={SheltersPage} />
             <Route exact path='/login' component={LoginPage} />
             <Switch>
@@ -31,9 +31,7 @@ class App extends Component {
               <Route path={'/shelters/:shelterId'} component={ShelterShow} />
             </Switch>
           </Grid>
-          <Grid>
-            <Route exact path='/' component={Home}/>
-          </Grid>
+          
           <Grid>
             <SocialMediaLinks />
           </Grid>
