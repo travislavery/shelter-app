@@ -8,6 +8,7 @@ const Items = (props) => {
 			return props.shelter.items.map(item =>
 			 <Item 
 			 	className="col-auto"
+			 	handleDelete={props.handleDelete}
 			 	key={item.id} 
 			 	shelter={props.shelter} 
 			 	item={item}
