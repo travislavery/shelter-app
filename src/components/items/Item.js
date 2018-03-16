@@ -7,9 +7,7 @@ const Item = (props) => {
 		<div className='row'>
 			<h1>{props.item.name}</h1>
 			<ManageItemCount item={props.item} shelter={props.shelter} />
-			<Form>
-				<Button type="submit" name={props.shelter.id} value={props.item.id} onClick={props.handleDelete}>Delete</Button>
-			</Form>
+			<Button type="submit" name={props.shelter.id} value={props.item.id} onClick={props.handleDelete}>Delete</Button>
 		</div>
 	)
 }

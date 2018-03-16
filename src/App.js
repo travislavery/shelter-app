@@ -8,6 +8,7 @@ import LoginPage from './containers/user/LoginPage'
 import SocialMediaLinks from './components/user/SocialMediaLinks'
 import {fetchUser} from './actions/user'
 import {fetchShelters} from './actions/shelters'
+import {fetchItems} from './actions/items'
 import decode from 'jwt-decode'
 import {Grid} from 'react-bootstrap'
 import NavBar from './components/navbar/NavBar'
@@ -41,6 +42,7 @@ import Home from './containers/Home'
 
 class App extends Component {
   componentDidMount = () => {
+    this.props.fetchItems()
     this.props.fetchUser()
     this.props.fetchShelters()
     //checkAuth() ? 
@@ -77,7 +79,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {fetchUser, fetchShelters})(App);
+export default connect(mapStateToProps, {fetchUser, fetchShelters, fetchItems})(App);
 
 
 // <header className="App-header">

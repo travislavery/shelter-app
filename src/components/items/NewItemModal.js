@@ -68,6 +68,7 @@ class NewItemModal extends Component {
         				<label className="col-form-label">Item Name: </label>
         				<div className="">
         	          <input
+                      required='required'
         	          	className="form-control"
         	            type="text"
         	            placeholder="Item Name"
@@ -80,6 +81,7 @@ class NewItemModal extends Component {
                 <label className="col-form-label">Item Description: </label>
                 <div className="">
                     <textarea rows='4' cols='50'
+                      required='required'
                       className="form-control"
                       type="textarea"
                       placeholder="Item Description"

@@ -14,9 +14,6 @@ class Home extends Component {
 			filter: 'none'
 		}
 	}
-	componentDidMount(){
-		this.props.fetchItems()
-	}
 
 	randomPicture(){
 		return fetch(`https://picsum.photos/200`)

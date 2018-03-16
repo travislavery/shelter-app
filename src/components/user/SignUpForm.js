@@ -11,6 +11,7 @@ const SignUpForm = (props) => {
 					<label className="col-sm-2 col-form-label">Email: </label>
 					<div className="col-sm-10">
 	          <input
+	          	required
 	          	className="form-control"
 	            type="email"
 	            placeholder="Email"
@@ -22,6 +23,7 @@ const SignUpForm = (props) => {
 	        <label className="col-sm-2 col-form-label">Password: </label>
 	      	<div className="col-sm-10">
           	<input
+          		required
 	          	className="form-control"
 	            type="password"
 	            placeholder="Password"
@@ -33,6 +35,7 @@ const SignUpForm = (props) => {
 	        <label className="col-sm-2 col-form-label">Confirm Password: </label>
 	      	<div className="col-sm-10">
           	<input
+          		required
 	          	className="form-control"
 	            type="password"
 	            placeholder="Password Confirm"

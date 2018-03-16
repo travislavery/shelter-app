@@ -5,9 +5,9 @@ import {Col} from 'react-bootstrap'
 const ListMediaItem = (props) => {
 	return (
 		<li className="media">
-			<img className='mr-3' src={props.randomPicture()} alt="" />
+			<img className='mr-3' src='' alt="" />
 			<div className='media-body'>
-				<h5 className='mt-0 mb-1'>{props.item.name}</h5>
+				<h2 className='mt-0 mb-1'>{props.item.name}</h2>
 				{props.item.description}
 			</div>
 		</li>
