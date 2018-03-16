@@ -11,6 +11,8 @@ export default (state=[], action) => {
 		  return [action.payload, ...state.filter(shelter=> shelter.id !== action.payload.id)]
 		case 'SHELTER_ITEM_COUNT_UPDATED':
 		  return [...state.filter(shelter=> shelter.id !== action.payload.id), action.payload]
+		case 'ITEM_DELETED':
+		  return [action.payload, ...state.filter(shelter=> shelter.id !== action.payload.id)]
 		default: 
 		  return state
 	}

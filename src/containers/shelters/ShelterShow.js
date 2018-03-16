@@ -3,17 +3,32 @@ import {connect} from 'react-redux'
 import ShelterCard from '../../components/shelters/ShelterCard'
 import {Button} from 'react-bootstrap'
 import {fetchItems} from '../../actions/items'
+import {deleteItem} from '../../actions/shelters'
 import Items from '../../components/items/Items'
 import NewItemModal from '../../components/items/NewItemModal'
+import ExistingItemsModal from '../../components/items/ExistingItemsModal'
 
 
 class ShelterShow extends Component{
+	constructor(){
+		super()
+		this.handleDelete = this.handleDelete.bind(this)
+		this.state={
+
+		}
+	}
 	componentDidMount = () => {
-		//this.props.fetchItems(this.props.shelter.id)
+		this.props.fetchItems()
+	}
+
+	handleDelete(event){
+		event.preventDefault()
+		const {deleteItem} = this.props
+		const shelterItem = this.props.shelter.shelter_items.find(item => item.item_id == event.target.value)
+		deleteItem(shelterItem.id)
 	}
 
 	render(){
-		console.log(React.Children)
 		return (
 			<div>
 				<div>
@@ -22,7 +37,8 @@ class ShelterShow extends Component{
 				<div>
 					<h1>Items Inventory</h1>
 					<NewItemModal shelter={this.props.shelter} />
-					<Items shelter={this.props.shelter}/>
+					<ExistingItemsModal shelter={this.props.shelter} items={this.props.items} />
+					<Items handleDelete={this.handleDelete} shelter={this.props.shelter}/>
 				</div>
 			</div>
 		)
@@ -35,7 +51,8 @@ const mapStateToProps = (state, ownProps) => {
 	if (shelter){
 	  return { 
 	  	shelter,
-	  	user: state.user
+	  	user: state.user,
+	  	items: state.items,
 	  	}
 	} else {
 		return {
@@ -44,4 +61,4 @@ const mapStateToProps = (state, ownProps) => {
 	}
 };
 
-export default connect(mapStateToProps, {fetchItems})(ShelterShow)
+export default connect(mapStateToProps, {fetchItems, deleteItem})(ShelterShow)

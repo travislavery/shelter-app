@@ -44,3 +44,21 @@ export function updateShelterItem(inventory//, xEmail, xToken
 		.catch(error => console.error(error))
 	}
 }
+
+
+export function deleteItem(shelterItemId){
+	return (dispatch) => {
+		return fetch(`http://localhost:4000/v1/shelter_items/${shelterItemId}`, {
+			method: 'DELETE',
+			headers: {
+				'content-type': 'application/json',
+				//'X-User-Email': xEmail,
+				//'X-User-Token': xToken,
+			},
+			mode: 'cors',
+		})
+		.then(response => response.json())
+		.then(shelter => dispatch({type: "ITEM_DELETED", payload: shelter}))
+		.catch(error => console.error(error))
+	}
+}

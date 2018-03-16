@@ -7,6 +7,8 @@ export default (state=[], action) => {
 		  return [...action.payload]
 		case 'ADD_ITEM':
 		  return [...state, action.payload]
+		case 'ITEM_DELETED':
+		  return [action.payload, ...state.filter(shelter=> shelter.id !== action.payload.id)]
 		default: 
 		  return state
 	}
