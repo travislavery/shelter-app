@@ -25,3 +25,10 @@ export function fetchItems(){
 		.then(items => dispatch({type: "FETCH_ITEMS", payload: items}))
 	}
 }
+
+export function fetchPicsumPhotos(){
+	return (dispatch) => {
+		return fetch(`https://picsum.photos/200`)
+				.then(response => dispatch({type: "FETCH_PICSUM", payload: {url: response.url}}))
+	}
+}
