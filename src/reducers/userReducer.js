@@ -7,13 +7,17 @@ export default (state={}, action) => {
 		  console.log('attempting login...')
 		  return state
 		case 'LOGIN_USER':
+		  debugger
 		  localStorage.setItem('email', action.payload.email)
-		  localStorage.setItem('authentication_token', action.payload.authorization_token)
+		  localStorage.setItem('authentication_token', action.payload.authentication_token)
 		  return {...action.payload}
 		case "START_LOG_OUT":
-		  console.log("logging out")
+		  return state
+		  console.log('logging out')
 		  break
 		case "LOG_OUT":
+		  localStorage.removeItem('email')
+		  localStorage.removeItem('authentication_token')
 		  return state
 		default: 
 		  return state

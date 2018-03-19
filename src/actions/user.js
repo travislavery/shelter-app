@@ -15,22 +15,22 @@ export function loginUser(userFormData){
 	}
 }
 
-// export function verifyUser(userData){
-// 	return (dispatch) => {
-// 		dispatch({type: 'BEGINNING_VERIFY'})
-// 		return fetch('http://localhost:4000/v1/sessions', {
-// 			method: 'POST',
-// 			body: JSON.stringify(userFormData),
-// 			headers: {
-// 				'content-type': 'application/json',
-// 			},
-// 			mode: 'cors',
-// 		})
-// 		.then(response => response.json())
-// 		.then(user => dispatch({type: "LOGIN_USER", payload: user}))
-// 		.catch(error => console.error(error))
-// 	}
-// }
+export function verifyLocalUser(email, token){
+	return (dispatch) => {
+		return fetch('http://localhost:4000/v1/sessions', {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json',
+				'X-User-Email': email,
+				'X-User-Token': token
+			},
+			mode: 'cors',
+		})
+		.then(response => response.json())
+		.then(user => dispatch({type: "LOGIN_USER", payload: user}))
+		.catch(error => console.error(error))
+	}
+}
 
 export function signUpUser(userFormData){
 	return (dispatch) => {
@@ -54,6 +54,7 @@ export function fetchUser(){
 		dispatch({type: '@@INIT'})
 	}
 }
+
 
 export function logout(user){
 	return (dispatch)=>{
