@@ -2,7 +2,6 @@ import React from 'react';
 import Item from './Item'
 
 const Items = (props) => {
-	console.log(props)
 	const itemList = () => {
 		if (props.shelter.items){
 			return props.shelter.items.map(item =>

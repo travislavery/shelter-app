@@ -6,6 +6,7 @@ export default (state=[], action) => {
 		case 'FETCH_SHELTERS':
 		  return [...action.payload]
 		case 'ADD_SHELTER':
+		  debugger
 		  return [...state, action.payload]
 		case "SHELTER_ITEM_CREATED":
 		  return [action.payload, ...state.filter(shelter=> shelter.id !== action.payload.id)]
