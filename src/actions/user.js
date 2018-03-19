@@ -9,9 +9,19 @@ export function loginUser(userFormData){
 			},
 			mode: 'cors',
 		})
-		.then(response => response.json())
-		.then(user => dispatch({type: "LOGIN_USER", payload: user}))
-		.catch(error => console.error(error))
+		.then(response => {
+			switch (response.status) {
+				case 401: dispatch({type: "LOGIN_ERROR", payload: response}); break;
+			}
+			if (response.ok){
+				return response.json()
+			}
+		})
+		.then(user => {
+			if (user) {
+				dispatch({type: "LOGIN_USER", payload: user})
+			}
+		})
 	}
 }
 
