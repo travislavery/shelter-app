@@ -6,8 +6,8 @@ export function createItem(itemData, shelterId){
 			body: JSON.stringify(itemData),
 			headers: {
 				'content-type': 'application/json',
-				//'X-User-Email': xEmail,
-				//'X-User-Token': xToken,
+				'X-User-Email': localStorage.getItem('email'),
+				'X-User-Token': localStorage.getItem('authentication_token'),
 			},
 			mode: 'cors',
 		})

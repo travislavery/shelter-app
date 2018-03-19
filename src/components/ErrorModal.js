@@ -4,11 +4,21 @@ import {connect} from 'react-redux'
 
 
 class ErrorModal extends Component {
-  constructor(props, context){
-    super(props, context)
-
+  constructor(props){
+    super()
+    this.handleShow = this.handleShow.bind(this)
+    this.handleClose = this.handleClose.bind(this)
     this.state={
-      show: false
+      show: Array.isArray(props.errors) ? false : true
+    }
+  }
+
+  componentWillReceiveProps(nextProps){
+    debugger
+    if (nextProps.errors.errorType !== this.props.errors.errorType || Array.isArray(this.props.errors)){
+      this.setState({
+        show: true
+      })
     }
   }
 
@@ -28,10 +38,10 @@ class ErrorModal extends Component {
   	return (
       <Modal show={this.state.show} onHide={this.handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Error</Modal.Title>
+          <Modal.Title>{this.props.errors.errorType} Error</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-      		{this.props.errors}
+      		{this.props.errors.message}
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={this.handleClose}>Close</Button>
@@ -41,4 +51,11 @@ class ErrorModal extends Component {
   }
 }
 
-export default connect(null, {})(ErrorModal)
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {
+    errors: state.errors
+  }
+}
+
+export default connect(mapStateToProps, {})(ErrorModal)

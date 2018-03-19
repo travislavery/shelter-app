@@ -53,8 +53,19 @@ export function signUpUser(userFormData){
 			},
 			mode: 'cors',
 		})
-		.then(response => response.json())
-		.then(user => dispatch({type: "LOGIN_USER", payload: user}))
+		.then(response => {
+			switch (response.status) {
+				case 403: dispatch({type: "SIGNUP_ERROR", payload: response}); break;
+			}
+			if (response.ok){
+				return response.json()
+			}
+		})
+		.then(user => {
+			if (user) {
+				dispatch({type: "LOGIN_USER", payload: user})
+			}
+		})
 		.catch(error => console.error(error))
 	}
 }

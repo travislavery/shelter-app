@@ -30,17 +30,6 @@ const checkAuth = () => {
   return true
 }
 
-// const AuthRoute = ({ component: Component, ...rest}) => (
-//   <Route {...rest} render={props => (
-//     checkAuth() ? (
-//       <Component {...props} />
-//     ) : (
-//       <Redirect to={{pathname: '/login'}} />
-//     )
-//   )} />
-// )
-// <AuthRoute exact path='/auth' component={Auth} />
-
 class App extends Component {
   componentDidMount = () => {
     this.props.fetchItems()
@@ -59,7 +48,7 @@ class App extends Component {
         <div>
           <NavBar user={this.props.user}/>
           <Route exact path='/' component={Home}/>
-          <ErrorModal errors={this.props.errors}/>
+          <ErrorModal/>
           <Grid>
             <Route exact path='/shelters' component={SheltersPage} />
             <Route exact path='/login' component={LoginPage} />
@@ -82,7 +71,6 @@ const mapStateToProps = (state) => {
   console.log(state)
   return {
     user: state.user,
-    errors: state.errors
   }
 }
 

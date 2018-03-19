@@ -3,8 +3,10 @@ export default (state=[], action) => {
 		case 'ERROR':
 		  return [...action.payload]
 		case 'LOGIN_ERROR':
+		  return {errorType: action.payload.statusText, message: "Unable to log in successfully, please try again."}
+		case "SIGNUP_ERROR":
 		  debugger
-		  return {error: action.payload.statusText}
+		  return {errorType: action.payload.statusText, message: "Unable to sign up in successfully, please try again."}
 		default: 
 		  return state
 	}

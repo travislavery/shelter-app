@@ -7,7 +7,6 @@ export default (state={}, action) => {
 		  console.log('attempting login...')
 		  return state
 		case 'LOGIN_USER':
-		  debugger
 		  localStorage.setItem('email', action.payload.email)
 		  localStorage.setItem('authentication_token', action.payload.authentication_token)
 		  return {...action.payload}

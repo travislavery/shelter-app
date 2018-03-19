@@ -26,21 +26,31 @@ export function createShelter(shelterFormData, xEmail, xToken){
 	}
 }
 
-export function updateShelterItem(inventory//, xEmail, xToken
-	){
+export function updateShelterItem(inventory){
 	return (dispatch) => {
 		return fetch('http://localhost:4000/v1/shelter_items', {
 			method: 'POST',
 			body: JSON.stringify(inventory),
 			headers: {
 				'content-type': 'application/json',
-				//'X-User-Email': xEmail,
-				//'X-User-Token': xToken,
+				'X-User-Email': localStorage.getItem('email'),
+				'X-User-Token': localStorage.getItem('authentication_token'),
 			},
 			mode: 'cors',
 		})
-		.then(response => response.json())
-		.then(shelter => dispatch({type: "SHELTER_ITEM_COUNT_UPDATED", payload: shelter}))
+		.then(response => {
+			switch (response.status) {
+				case 401: dispatch({type: "UPDATE_ITEM_ERROR", payload: response}); break;
+			}
+			if (response.ok){
+				return response.json()
+			}
+		})
+		.then(shelter => {
+			if (shelter) {
+				dispatch({type: "SHELTER_ITEM_COUNT_UPDATED", payload: shelter})
+			}
+		})
 		.catch(error => console.error(error))
 	}
 }
@@ -52,8 +62,8 @@ export function deleteItem(shelterItemId){
 			method: 'DELETE',
 			headers: {
 				'content-type': 'application/json',
-				//'X-User-Email': xEmail,
-				//'X-User-Token': xToken,
+				'X-User-Email': localStorage.getItem('email'),
+				'X-User-Token': localStorage.getItem('authentication_token'),
 			},
 			mode: 'cors',
 		})
