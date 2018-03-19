@@ -8,7 +8,7 @@ const ShelterForm = (props) => {
 				<label className="col-sm-2 col-form-label">Shelter Name: </label>
 				<div className="col-sm-10">
 	          <input
-	          	requred
+	          	required
 	          	className="form-control"
 	            type="text"
 	            placeholder="Shelter Name"
