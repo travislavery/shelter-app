@@ -4,6 +4,7 @@ import {updateShelterItem} from '../../actions/shelters'
 import {deleteItem} from '../../actions/shelters'
 import {connect} from 'react-redux'
 
+
 class ManageItemCount extends Component{
 	constructor(props){
 		super(props)

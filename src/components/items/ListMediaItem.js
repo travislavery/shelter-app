@@ -9,11 +9,11 @@ const ListMediaItem = (props) => {
 		<div>
 			<h1>{props.item.name}</h1>
 			<h4>{props.item.description}</h4>
-			<Table striped condensed>
+			<Table striped hover bordered>
 				<thead>
 					<tr>
-						<th>Shelter</th>
-						<th>Inventory</th>
+						<th scope='col'>Shelter</th>
+						<th scope='col'>Inventory</th>
 					</tr>
 				</thead>
 				<tbody>

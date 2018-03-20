@@ -15,9 +15,9 @@ class ShelterShow extends Component{
 
 		}
 	}
-	componentDidMount = () => {
-		this.props.fetchItems()
-	}
+	// componentDidMount = () => {
+	// 	this.props.fetchItems()
+	// }
 
 	
 
