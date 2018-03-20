@@ -49,7 +49,6 @@ class ErrorModal extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     errors: state.errors
   }
