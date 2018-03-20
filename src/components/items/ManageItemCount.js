@@ -9,8 +9,10 @@ class ManageItemCount extends Component{
 		super(props)
 		const count = props.shelter.shelter_items.find(itemCount => itemCount.item_id === props.item.id).inventory
 		this.handleDelete = this.handleDelete.bind(this)
+		this.handleClick = this.handleClick.bind(this)
 		this.state={
-			inventory: count
+			inventory: count,
+			edit: false,
 		}
 	}
 
@@ -19,6 +21,12 @@ class ManageItemCount extends Component{
 		const {deleteItem} = this.props
 		const shelterItem = this.props.shelter.shelter_items.find(item => item.item_id == event.target.value)
 		deleteItem(shelterItem.id)
+	}
+
+	handleClick(){
+		this.setState({
+			edit: true,
+		})
 	}
 
 	handleUpCount = () =>{
@@ -48,11 +56,14 @@ class ManageItemCount extends Component{
 			shelter_id: this.props.shelter.id,
 			item_id: this.props.item.id,
 		})
+		this.setState({
+			edit: false
+		})
 	}
 
 	render(){
 		return (
-			<Form onSubmit={(event)=>this.handleSubmit(event)}>
+			<Form id="manage-item-count-form" onSubmit={(event)=>this.handleSubmit(event)}>
 				<Button onClick={this.handleDownCount}>-</Button>
 				<input type='number' value={this.state.inventory} onChange={(event) => this.handleChange(event)}/>
 				<Button onClick={this.handleUpCount}>+</Button>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import ShelterCard from '../../components/shelters/ShelterCard'
-import {Button} from 'react-bootstrap'
+import {Button, Col} from 'react-bootstrap'
 import {fetchItems} from '../../actions/items'
 import Items from '../../components/items/Items'
 import NewItemModal from '../../components/items/NewItemModal'
@@ -24,15 +24,15 @@ class ShelterShow extends Component{
 	render(){
 		return (
 			<div>
-				<div>
+				<Col xs={12} md={4}>
 					<ShelterCard shelter={this.props.shelter}/>
-				</div>
-				<div>
+				</Col>
+				<Col xs={12} md={8}>
 					<h1>Items Inventory</h1>
 					<NewItemModal shelter={this.props.shelter} />
 					<ExistingItemsModal shelter={this.props.shelter} items={this.props.items} />
 					<Items shelter={this.props.shelter}/>
-				</div>
+				</Col>
 			</div>
 		)
 	}
