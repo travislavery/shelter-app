@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import ShelterCard from '../../components/shelters/ShelterCard'
-import {Button, Col} from 'react-bootstrap'
+import {Col} from 'react-bootstrap'
 import {fetchItems} from '../../actions/items'
 import Items from '../../components/items/Items'
 import NewItemModal from '../../components/items/NewItemModal'

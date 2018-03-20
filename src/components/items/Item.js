@@ -1,6 +1,6 @@
 import React from 'react';
 import ManageItemCount from './ManageItemCount'
-import {Button, Form, Row, Col} from 'react-bootstrap'
+import {Row, Col} from 'react-bootstrap'
 
 const Item = (props) => {
 	return (

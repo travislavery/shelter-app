@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {loginUser, signUpUser} from '../../actions/user.js'
-import {Form, Button} from 'react-bootstrap'
 import LoginForm from '../../components/user/LoginForm'
 import SignUpForm from '../../components/user/SignUpForm'
 

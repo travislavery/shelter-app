@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import SheltersPage from './containers/shelters/SheltersPage'
 import ShelterNew from './containers/shelters/ShelterNew'
 import ShelterShow from './containers/shelters/ShelterShow'
@@ -10,7 +10,6 @@ import SocialMediaLinks from './components/user/SocialMediaLinks'
 import {fetchUser, verifyLocalUser} from './actions/user'
 import {fetchShelters} from './actions/shelters'
 import {fetchItems} from './actions/items'
-import decode from 'jwt-decode'
 import {Grid} from 'react-bootstrap'
 import NavBar from './components/navbar/NavBar'
 import Home from './containers/Home'
