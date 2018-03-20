@@ -14,11 +14,9 @@ class ErrorModal extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    //if (nextProps.errors.errorType !== this.props.errors.errorType || Array.isArray(this.props.errors)){
     this.setState({
       show: true
     })
-    //}
   }
 
   handleShow(){
