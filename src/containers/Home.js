@@ -23,6 +23,7 @@ class Home extends Component {
 	
 
 	render(){
+		const userShelters = this.props.shelters.filter(shelter => shelter.user.id == this.props.user.id)
 		return(
 			<Grid fluid>
 				<Jumbotron id='home-jumbotron' className='jumbotron-fluid'>
@@ -32,7 +33,8 @@ class Home extends Component {
 					
 				</Jumbotron>
 				<Col md={4}>
-					<SheltersList columnwidth={12} shelters={this.props.shelters}/>
+					<h1>Your Shelters</h1>
+					<SheltersList columnwidth={12} shelters={userShelters}/>
 				</Col>
 				<Col md={8}>
 					<ItemStockpile items={this.props.items} randomPicture={this.randomPicture}/>
@@ -47,6 +49,7 @@ const mapStateToProps = (state) =>{
 		shelters: state.shelters,
 		items: state.items,
 		picture_urls: state.picture_urls,
+		user: state.user,
 	}
 }
 

@@ -3,11 +3,12 @@ import ListMediaItem from './ListMediaItem'
 
 
 const ItemStockpile = (props) => {
-	const renderItems = props.items.map(item => <ListMediaItem key={item.id} randomPicture={props.randomPicture} columnwidth={props.columnwidth} item={item} />)
+	const itemsWithShelter = props.items.filter(item => item.shelters.length > 0)
+	const renderItems = itemsWithShelter.map(item => <ListMediaItem key={item.id} columnwidth={props.columnwidth} item={item} />)
 	return (
-		<ul className='list-unstyled'>
+		<div>
 			{renderItems}
-		</ul>
+		</div>
 	)
 }
 
