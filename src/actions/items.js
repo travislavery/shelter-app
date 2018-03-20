@@ -20,9 +20,9 @@ export function createItem(itemData, shelterId){
 				return response.json()
 			}
 		})
-		.then(shelter => {
-			if (shelter) {
-				dispatch({type: "SHELTER_ITEM_CREATED", payload: shelter})
+		.then(data => {
+			if (data) {
+				dispatch({type: "SHELTER_ITEM_CREATED", payload: data})
 			}
 		})
 		.catch(error => console.error(error))
