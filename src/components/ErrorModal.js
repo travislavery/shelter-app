@@ -14,12 +14,11 @@ class ErrorModal extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    debugger
-    if (nextProps.errors.errorType !== this.props.errors.errorType || Array.isArray(this.props.errors)){
-      this.setState({
-        show: true
-      })
-    }
+    //if (nextProps.errors.errorType !== this.props.errors.errorType || Array.isArray(this.props.errors)){
+    this.setState({
+      show: true
+    })
+    //}
   }
 
   handleShow(){

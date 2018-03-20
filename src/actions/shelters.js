@@ -20,8 +20,19 @@ export function createShelter(shelterFormData, xEmail, xToken){
 			},
 			mode: 'cors',
 		})
-		.then(response => response.json())
-		.then(shelter => dispatch({type: "ADD_SHELTER", payload: shelter}))
+		.then(response => {
+			switch (response.status) {
+				case 401: dispatch({type: "CREATE_SHELTER_ERROR", payload: response}); break;
+			}
+			if (response.ok){
+				return response.json()
+			}
+		})
+		.then(shelter => {
+			if (shelter) {
+				dispatch({type: "ADD_SHELTER", payload: shelter})
+			}
+		})
 		.catch(error => console.error(error))
 	}
 }
@@ -40,7 +51,7 @@ export function updateShelterItem(inventory){
 		})
 		.then(response => {
 			switch (response.status) {
-				case 401: dispatch({type: "UPDATE_ITEM_ERROR", payload: response}); break;
+				case 401: dispatch({type: "UPDATE_INVENTORY_ERROR", payload: response}); break;
 			}
 			if (response.ok){
 				return response.json()
@@ -67,8 +78,19 @@ export function deleteItem(shelterItemId){
 			},
 			mode: 'cors',
 		})
-		.then(response => response.json())
-		.then(shelter => dispatch({type: "ITEM_DELETED", payload: shelter}))
+		.then(response => {
+			switch (response.status) {
+				case 401: dispatch({type: "UPDATE_INVENTORY_ERROR", payload: response}); break;
+			}
+			if (response.ok){
+				return response.json()
+			}
+		})
+		.then(shelter => {
+			if (shelter) {
+				dispatch({type: "ITEM_DELETED", payload: shelter})
+			}
+		})
 		.catch(error => console.error(error))
 	}
 }

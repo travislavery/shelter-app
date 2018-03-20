@@ -11,8 +11,20 @@ export function createItem(itemData, shelterId){
 			},
 			mode: 'cors',
 		})
-		.then(response => response.json())
-		.then(shelter => dispatch({type: "SHELTER_ITEM_CREATED", payload: shelter}))
+		.then(response => {
+			switch (response.status) {
+				case 401: dispatch({type: "UPDATE_INVENTORY_ERROR", payload: response}); break;
+				case 400: dispatch({type: "CREATE_ITEM_ERROR", payload: response}); break;
+			}
+			if (response.ok){
+				return response.json()
+			}
+		})
+		.then(shelter => {
+			if (shelter) {
+				dispatch({type: "SHELTER_ITEM_CREATED", payload: shelter})
+			}
+		})
 		.catch(error => console.error(error))
 	}
 }
