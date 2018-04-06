@@ -17,7 +17,7 @@ class ShelterNew extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     const { createShelter, history, user } = this.props
-    const imageUrl = this.state.image === '' ? 'http://a57.foxnews.com/images.foxnews.com/content/fox-news/lifestyle/2017/11/09/how-to-keep-cat-from-scratching-your-sofa-to-shreds/_jcr_content/par/featured_image/media-0.img.jpg/931/524/1510172827500.jpg?ve=1&tl=1&text=big-top-image' : this.state.image
+    const imageUrl = this.state.image === '' ? "http://www.clker.com/cliparts/f/e/6/c/120743200840710503sleeping%20shelter%20white.svg.med.png" : this.state.image
 
 	    createShelter({shelter: {
 	    	name: this.state.name,

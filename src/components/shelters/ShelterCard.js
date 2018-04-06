@@ -1,23 +1,32 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import {Col} from 'react-bootstrap'
+import {Col, Button} from 'react-bootstrap'
 
-const ShelterCard = (props) => {
-	return (
-		<Col md={props.columnwidth} >
-		<div className="card" style={{width: 25+'rem'}}>
-			<div className="card-block">
-				<div className="card-header"><Link key={props.shelter.id} to={`/shelters/${props.shelter.id}`}><h3>{props.shelter.name}</h3></Link></div>
-				<img alt='' className="card-img-top" src={props.shelter.image} style={{width: 25+'rem', height: 17+'rem'}} />
-				<div className="card-body">
-					<p className="card-text">Address: {props.shelter.address}</p>
-					<p className="card-text">Phone Number: {props.shelter.phone_number}</p>
+class ShelterCard extends Component {
+	constructor(){
+		super()
+		this.state={
+			count: 0,
+		}
+	}
+
+	render(){
+		return (
+			<Col md={this.props.columnwidth} >
+			<div className="card" style={{width: 25+'rem'}}>
+				<div className="card-block">
+					<div className="card-header"><Link key={this.props.shelter.id} to={`/shelters/${this.props.shelter.id}`}><h3>{this.props.shelter.name}</h3></Link></div>
+					<img alt='' className="card-img-top" src={this.props.shelter.image} style={{width: 25+'rem', height: 17+'rem'}} />
+					<div className="card-body">
+						<p className="card-text">Address: {this.props.shelter.address}</p>
+						<p className="card-text">Phone Number: {this.props.shelter.phone_number}</p>
+					</div>
 				</div>
+				
 			</div>
-			
-		</div>
-		</Col>
-	)
+			</Col>
+		)
+	}
 }
 
 export default ShelterCard
