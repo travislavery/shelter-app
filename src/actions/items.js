@@ -35,6 +35,7 @@ export function fetchItems(){
 		return fetch(`https://lavery-shelter-api.herokuapp.com/v1/items`)
 		.then(response => response.json())
 		.then(items => dispatch({type: "FETCH_ITEMS", payload: items}))
+		.catch(error => console.error(error))
 	}
 }
 

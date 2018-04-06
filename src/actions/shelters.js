@@ -4,6 +4,7 @@ export function fetchShelters(){
 		return fetch('https://lavery-shelter-api.herokuapp.com/v1/shelters')
 		.then(response => response.json())
 		.then(shelters => dispatch({type: "FETCH_SHELTERS", payload: shelters}))
+		.catch(error => console.error(error))
 	}
 }
 
