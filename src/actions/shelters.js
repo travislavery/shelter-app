@@ -1,17 +1,18 @@
 export function fetchShelters(){
 	return (dispatch) => {
 		dispatch({type: 'STARTING_FETCH_SHELTERS'})
-		return fetch('https://lavery-shelter-api.herokuapp.com/v1/shelters')
+		//return fetch('https://lavery-shelter-api.herokuapp.com/v1/shelters')
+		return fetch('http://localhost:4000/v1/shelters')
 		.then(response => response.json())
 		.then(shelters => dispatch({type: "FETCH_SHELTERS", payload: shelters}))
 		.catch(error => console.error(error))
 	}
 }
-
+//https://lavery-shelter-api.herokuapp.com/v1/shelters
 export function createShelter(shelterFormData, xEmail, xToken){
 	return (dispatch) => {
 		dispatch({type: 'CREATING_SHELTER'})
-		return fetch('https://lavery-shelter-api.herokuapp.com/v1/shelters', {
+		return fetch('http://localhost:4000/v1/shelters', {
 			method: 'POST',
 			body: JSON.stringify(shelterFormData),
 			headers: {
@@ -40,7 +41,8 @@ export function createShelter(shelterFormData, xEmail, xToken){
 
 export function updateShelterItem(inventory){
 	return (dispatch) => {
-		return fetch('https://lavery-shelter-api.herokuapp.com/v1/shelter_items', {
+		//return fetch('https://lavery-shelter-api.herokuapp.com/v1/shelter_items', {
+		return fetch('http://localhost:4000/v1/shelter_items', {
 			method: 'POST',
 			body: JSON.stringify(inventory),
 			headers: {
@@ -70,7 +72,8 @@ export function updateShelterItem(inventory){
 
 export function deleteItem(shelterItemId){
 	return (dispatch) => {
-		return fetch(`https://lavery-shelter-api.herokuapp.com/v1/shelter_items/${shelterItemId}`, {
+		//return fetch(`https://lavery-shelter-api.herokuapp.com/v1/shelter_items/${shelterItemId}`, {
+		return fetch(`http://localhost:4000/v1/shelter_items/${shelterItemId}`, {
 			method: 'DELETE',
 			headers: {
 				'content-type': 'application/json',

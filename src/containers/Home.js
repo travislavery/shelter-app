@@ -9,16 +9,16 @@ import ItemStockpile from '../components/items/ItemStockpile'
 class Home extends Component {
 	constructor(){
 		super()
-		this.randomPicture = this.randomPicture.bind(this)
+		//this.randomPicture = this.randomPicture.bind(this)
 		this.state={
 			filter: 'none'
 		}
 	}
 
-	randomPicture(){
-		return fetch(`https://picsum.photos/200`)
-			.then(response => response.url)
-	}
+	// randomPicture(){
+	// 	return fetch(`https://picsum.photos/200`)
+	// 		.then(response => response.url)
+	// }
 
 	
 
@@ -37,7 +37,7 @@ class Home extends Component {
 					<SheltersList columnwidth={12} shelters={userShelters}/>
 				</Col>
 				<Col md={8}>
-					<ItemStockpile items={this.props.items} randomPicture={this.randomPicture}/>
+					<ItemStockpile items={this.props.items} shelters={this.props.shelters}/>
 				</Col>
 			</Grid>
 		)

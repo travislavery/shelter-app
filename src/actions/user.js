@@ -1,7 +1,8 @@
 export function loginUser(userFormData){
 	return (dispatch) => {
 		dispatch({type: 'ATTEMPTING_LOGIN'})
-		return fetch('https://lavery-shelter-api.herokuapp.com/v1/sessions', {
+		//return fetch('https://lavery-shelter-api.herokuapp.com/v1/sessions', {
+		return fetch('http://localhost:4000/v1/sessions', {
 			method: 'POST',
 			body: JSON.stringify(userFormData),
 			headers: {
@@ -27,7 +28,8 @@ export function loginUser(userFormData){
 
 export function verifyLocalUser(email, token){
 	return (dispatch) => {
-		return fetch('https://lavery-shelter-api.herokuapp.com/v1/sessions', {
+		//return fetch('https://lavery-shelter-api.herokuapp.com/v1/sessions', {
+		return fetch('http://localhost:4000/v1/sessions', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -45,7 +47,8 @@ export function verifyLocalUser(email, token){
 export function signUpUser(userFormData){
 	return (dispatch) => {
 		dispatch({type: 'SUBMITING_NEW_USER_FORM'})
-		return fetch('https://lavery-shelter-api.herokuapp.com/v1/users', {
+		//return fetch('https://lavery-shelter-api.herokuapp.com/v1/users', {
+		return fetch('http://localhost:4000/v1/users', {
 			method: 'POST',
 			body: JSON.stringify(userFormData),
 			headers: {
@@ -80,7 +83,8 @@ export function fetchUser(){
 export function logout(user){
 	return (dispatch)=>{
 		dispatch({type: 'START_LOG_OUT'})
-		return fetch('https://lavery-shelter-api.herokuapp.com/v1/sessions', {
+		//return fetch('https://lavery-shelter-api.herokuapp.com/v1/sessions', {
+		return fetch('http://localhost:4000/v1/sessions', {
 			method: 'DELETE',
 			headers: {
 				'content-type': 'application/json',

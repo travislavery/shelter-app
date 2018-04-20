@@ -3,7 +3,9 @@ import {Table} from 'react-bootstrap'
 import TableRowShelter from './TableRowShelter'
 
 const ListMediaItem = (props) => {
-	const tableRows = props.item.shelters.map(shelter => <TableRowShelter key={shelter.id} shelter={shelter} count={props.item.shelter_items.find(sh => sh.shelter_id === shelter.id).inventory}/>)
+	debugger
+	const tableRows = props.shelters.map(shelter => <TableRowShelter key={shelter.id} shelter={shelter} count={props.item.shelter_items.find(sh => sh.shelter_id === shelter.id).inventory}/>)
+//	const tableRows = props.item.shelter_items.filter(shelterItem => <TableRowShelter key={shelterItem.shelter_id} shelter={shelter} count={props.item.shelter_items.find(sh => sh.shelter_id === shelter.id).inventory}/>)
 	return (
 		<div>
 			<h1>{props.item.name}</h1>
