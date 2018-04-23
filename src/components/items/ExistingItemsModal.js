@@ -36,7 +36,7 @@ class ExistingItemsModal extends Component {
     event.preventDefault()
     const {createItem} = this.props
     createItem({
-      name: this.state.name,
+      group_name: this.state.name,
       description: this.state.description,
     }, this.props.shelter.id)
     this.setState({
@@ -53,7 +53,7 @@ class ExistingItemsModal extends Component {
   }
 
   render(){
-    const itemOptionsName = this.props.items ? this.props.items.map(item=> <OptionItem key={item.id} attribute="name" item={item.name}/>) : <option>...</option>
+    const itemOptionsName = this.props.item_groups ? this.props.item_groups.map(itemGroup=> <OptionItem key={itemGroup.id} attribute="name" item={itemGroup.name}/>) : <option>...</option>
     const itemOptionsDescription = this.props.items ? this.props.items.map(item=> <OptionItem key={item.id} attribute="description" item={item.description}/>) : <option>...</option>
   	return (
       <div>
@@ -68,11 +68,12 @@ class ExistingItemsModal extends Component {
           <Modal.Body>
         		<Form onSubmit={(event)=> this.handleOnSubmit(event)}>
         			<div className="form-group form-row">
-        				<label className="col-form-label">Item Name: </label>
+        				<label className="col-form-label">Item Group: </label>
         				<select className="form-control"
                   name="name"
                   onClick={event=>this.handleOnChange(event)}>
-        	         {itemOptionsName}
+                  <option value="" disabled>Select a group...</option>
+                  {itemOptionsName}
         	    	</select>
               </div>
               <div className="form-group form-row">

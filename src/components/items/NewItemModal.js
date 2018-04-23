@@ -35,7 +35,7 @@ class NewItemModal extends Component {
     event.preventDefault()
     const {createItem} = this.props
     createItem({
-      name: this.state.name,
+      group_name: this.state.name,
       description: this.state.description,
     }, this.props.shelter.id)
     this.setState({
