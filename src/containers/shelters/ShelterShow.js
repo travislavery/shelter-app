@@ -30,7 +30,7 @@ class ShelterShow extends Component{
 				<Col xs={12} md={8}>
 					<h1>Items Inventory</h1>
 					<NewItemModal shelter={this.props.shelter} />
-					<ExistingItemsModal shelter={this.props.shelter} items={this.props.items} />
+					<ExistingItemsModal shelter={this.props.shelter} items={this.props.items} item_groups={this.props.item_groups} />
 					<Items shelter={this.props.shelter}/>
 				</Col>
 			</div>
@@ -39,19 +39,15 @@ class ShelterShow extends Component{
 }
 
 const mapStateToProps = (state, ownProps) => {
-	const shelter = state.shelters.find(shelter => shelter.id == ownProps.match.params.shelterId)
+	const shelter = state.shelters.find(shelter => shelter.id == ownProps.match.params.shelterId) || {}
 	console.log(state)
-	if (shelter){
-	  return { 
+
+	return { 
 	  	shelter,
 	  	user: state.user,
 	  	items: state.items,
-	  	}
-	} else {
-		return {
-			shelter: {},
-		}
-	}
+	  	item_groups: state.item_groups
+  	}
 };
 
 export default connect(mapStateToProps, {fetchItems})(ShelterShow)

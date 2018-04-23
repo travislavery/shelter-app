@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Form} from 'react-bootstrap'
+import {Col, Button, Form, ButtonGroup, ButtonToolbar, InputGroup, FormGroup, FormControl} from 'react-bootstrap'
 import {updateShelterItem} from '../../actions/shelters'
 import {deleteItem} from '../../actions/shelters'
 import {connect} from 'react-redux'
@@ -62,14 +62,36 @@ class ManageItemCount extends Component{
 		})
 	}
 
+	getId = () => {
+		return `manage-item-count-form-${this.props.item.id}`
+	}
+
 	render(){
 		return (
-			<Form id="manage-item-count-form" onSubmit={(event)=>this.handleSubmit(event)}>
-				<Button onClick={this.handleDownCount}>-</Button>
-				<input type='number' value={this.state.inventory} onChange={(event) => this.handleChange(event)}/>
-				<Button onClick={this.handleUpCount}>+</Button>
-				<input type='submit' />
-				<Button type="submit" name={this.props.shelter.id} value={this.props.item.id} onClick={this.handleDelete}>Delete</Button>
+			<Form id={this.getId()} onSubmit={(event)=>this.handleSubmit(event)}>
+				<Col xs={5}>
+					<FormGroup>
+						<InputGroup>
+							<InputGroup.Button>
+								<Button onClick={this.handleDownCount}>-</Button>
+							</InputGroup.Button>
+
+							<InputGroup.Button>
+								<Button onClick={this.handleUpCount}>+</Button>
+							</InputGroup.Button>
+
+							<FormControl type='number' value={this.state.inventory} onChange={(event) => this.handleChange(event)}/>
+							
+							<InputGroup.Button>
+								<Button type='submit' form={this.getId()}>Submit</Button>
+							</InputGroup.Button>
+
+							<InputGroup.Button>
+								<Button type="submit" name={this.props.shelter.id} value={this.props.item.id} onClick={this.handleDelete}>Delete</Button>
+							</InputGroup.Button>
+						</InputGroup>
+					</FormGroup>
+				</Col>
 			</Form>
 		)
 	}

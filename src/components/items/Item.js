@@ -6,7 +6,7 @@ const Item = (props) => {
 	return (
 		<Row>
 			<Col>
-				<h1>{props.item.name}</h1>
+				<h1>{props.item.group_name}</h1>
 				<p>{props.item.description}</p>
 			</Col>
 			<Col>
