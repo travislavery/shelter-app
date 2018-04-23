@@ -20,7 +20,6 @@ class SubGroupTable extends Component {
     return {shelter_item: shelter_item, shelter_name: this.getShelterName(shelter_item.shelter_id)}
   }
   render(){
-    debugger
     const shelterItemArray = this.props.item.shelter_items || []
     const itemShelters = shelterItemArray.map(sItem => this.getShelterItemInfo(sItem))
     const tableRows = itemShelters.map(item => <ShelterLine key={item.shelter_item.id} shelter_item={item.shelter_item} shelter_name={item.shelter_name}/>)
