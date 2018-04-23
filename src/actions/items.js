@@ -43,7 +43,7 @@ export function fetchItems(){
 
 export function fetchItemGroups(){
 	return (dispatch) => {
-		return fetch(`https://lavery-shelter-api.herokuapp.com/v1/items`)
+		return fetch(`https://lavery-shelter-api.herokuapp.com/v1/item_groups`)
 		//return fetch(`http://localhost:4000/v1/item_groups`)
 		.then(response => response.json())
 		.then(item_groups => dispatch({type: "FETCH_ITEM_GROUPS", payload: item_groups}))
