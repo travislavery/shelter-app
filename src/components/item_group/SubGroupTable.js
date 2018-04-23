@@ -49,9 +49,7 @@ class SubGroupTable extends Component {
 
 
 const mapStateToProps = (state, ownProps) => {
-  //todo//
   console.log(state)
-  //const groupItemIds = ownProps.items.map(item => item.id)
   const item = state.items.find(item => item.id === ownProps.item.id) || {}
   return {
     shelters: state.shelters,
