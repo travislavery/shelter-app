@@ -15,3 +15,7 @@ body {
 	color: white;
 }
 
+.item-group-well {
+	border-bottom: solid;
+}
+
