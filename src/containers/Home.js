@@ -4,6 +4,7 @@ import {Jumbotron, Grid, Col} from 'react-bootstrap'
 import {fetchItems} from '../actions/items'
 import SheltersList from '../components/shelters/SheltersList'
 import ItemStockpile from '../components/items/ItemStockpile'
+import ItemGroup from './items/ItemGroup'
 
 
 class Home extends Component {
@@ -37,7 +38,7 @@ class Home extends Component {
 					<SheltersList columnwidth={12} shelters={userShelters}/>
 				</Col>
 				<Col md={8}>
-					<ItemStockpile items={this.props.items} shelters={this.props.shelters}/>
+					<ItemGroup />
 				</Col>
 			</Grid>
 		)
@@ -54,3 +55,4 @@ const mapStateToProps = (state) =>{
 }
 
 export default connect(mapStateToProps, {fetchItems})(Home)
+//<ItemStockpile items={this.props.items} shelters={this.props.shelters}/>

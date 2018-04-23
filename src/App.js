@@ -9,7 +9,7 @@ import LoginPage from './containers/user/LoginPage'
 import SocialMediaLinks from './components/user/SocialMediaLinks'
 import {fetchUser, verifyLocalUser} from './actions/user'
 import {fetchShelters} from './actions/shelters'
-import {fetchItems} from './actions/items'
+import {fetchItems, fetchItemGroups} from './actions/items'
 import {Grid} from 'react-bootstrap'
 import NavBar from './components/navbar/NavBar'
 import Home from './containers/Home'
@@ -33,6 +33,7 @@ class App extends Component {
   componentDidMount = () => {
     this.props.fetchItems()
     this.props.fetchShelters()
+    this.props.fetchItemGroups()
     const token = localStorage.getItem('authentication_token')
     const email = localStorage.getItem('email')
 
@@ -73,7 +74,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {fetchUser, fetchShelters, fetchItems, verifyLocalUser})(App);
+export default connect(mapStateToProps, {fetchUser, fetchShelters, fetchItems, fetchItemGroups, verifyLocalUser})(App);
 
 
 // <header className="App-header">
