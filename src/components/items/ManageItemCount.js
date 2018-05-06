@@ -69,7 +69,7 @@ class ManageItemCount extends Component{
 	render(){
 		return (
 			<Form id={this.getId()} onSubmit={(event)=>this.handleSubmit(event)}>
-				<Col xs={5}>
+				<Col xs={7}>
 					<FormGroup>
 						<InputGroup>
 							<InputGroup.Button>
