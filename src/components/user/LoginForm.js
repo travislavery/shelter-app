@@ -6,6 +6,7 @@ const LoginForm = (props) => {
 		<div>
 			<h1>Login</h1>
 			<p>Need an account? <Button name="form" value="sign-up" onClick={(event)=>props.handleOnChange(event)}>Sign up!</Button></p>
+			<p>Login with test user <Button name="form" value="sign-up" onClick={(event)=>props.handleTestSubmit(event)}>Here!</Button></p>
 			<Form onSubmit={(event)=>props.handleOnSubmit(event)} >
 				<div className="form-group form-row">
 					<label className="col-sm-2 col-form-label">Email: </label>

@@ -25,6 +25,16 @@ class LoginPage extends Component {
     history.push('/');
   }
 
+  handleTestLoginSubmit = (event)=>{
+    event.preventDefault();
+    const { loginUser, history } = this.props
+    loginUser({
+      email: "testuser@test.com",
+      password: "1234test"
+    });
+    history.push('/');
+  }
+
   handleSignUpSubmit = (event) => {
   	event.preventDefault();
   	const {signUpUser, history } = this.props
@@ -45,7 +55,8 @@ class LoginPage extends Component {
 		const formChoice = this.state.form === 'login' ? (
 			<LoginForm 
 				  handleOnChange={this.handleOnChange} 
-				  handleOnSubmit={this.handleLoginSubmit}/>
+				  handleOnSubmit={this.handleLoginSubmit}
+          handleTestSubmit={this.handleTestLoginSubmit} />
 			) : (
 			<SignUpForm
 					handleOnChange={this.handleOnChange} 
